@@ -13,6 +13,7 @@ var score_fulfilled =	"3. Fulfilled: Essential functions of position fulfilled";
 var score_improve =		"2. Needs Improvement: Essential functions of position mostly fulfilled but needs improvement";
 var score_unfulfilled =	"1. Unfulfilled: Essential functions of position not fulfilled";
 
+// Define array that lists other custom fields that contain ratings that we need to consider
 String[] score_fields; // create string array that contains the names of the custom fields with ratings
 // We don't know in advance how long this array needs to be. The size of the array (number of ratings) might change over time.
 score_fields = new String[] {
@@ -24,6 +25,7 @@ score_fields = new String[] {
 };
 how_many_ratings = score_fields.length; // Calculate how many ratings we need to count.
 
+// Calculate score 
 for (int i=0; i < how_many_ratings; i++) { //Stop when we reach the total # of ratings that we're counting
 	if ( issue.get(score_fields[i]) != null ) { // Check whether the rating exists or is null
 		if (issue.get(score_fields[i]).equals(score_far_exceeds)) {
@@ -47,18 +49,11 @@ for (int i=0; i < how_many_ratings; i++) { //Stop when we reach the total # of r
 	}
 }
 
-// Show the results
+// Show results
 if (incomplete_ratings > 0) {
 	return "You're almost there! You have " + incomplete_ratings + " more rating(s) to complete, and then we can calculate the score.";
 } else {
 	return calc_score;
 }
 
-/*
-Far Exceeds Expectations= 14-15 points
-Exceeds Expectations= 11-13 points
-Fullfilled= 8- 11 points
-Needs Improvement= 6-7 points
-Unsatisfactory= 3-5 points
-*/
 -->
