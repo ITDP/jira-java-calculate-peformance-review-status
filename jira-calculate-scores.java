@@ -24,8 +24,7 @@ score_fields = new String[] {
 };
 how_many_ratings = score_fields.length; // Calculate how many ratings we need to count.
 
-for (int i=0; i<how_many_ratings; i++) {
-//Stop when we reach the total # of ratings that we're counting, specified by "i<5" for 5 ratings
+for (int i=0; i < how_many_ratings; i++) { //Stop when we reach the total # of ratings that we're counting
 	if ( issue.get(score_fields[i]) != null ) { // Check whether the rating exists or is null
 		if (issue.get(score_fields[i]).equals(score_far_exceeds)) {
 			calc_score = calc_score +5;
